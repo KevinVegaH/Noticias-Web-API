@@ -37,7 +37,8 @@ namespace NoticiasWebAPI
             // Añadimos el DBcontext al startUP //
             services.AddDbContext<NoticiasDBContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
             services.AddTransient<NoticiasServices,NoticiasServices>(); // <-- Con esto podemos usar el servicio en cualquier controlador.
-           
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(); // <-- Se configura el servicio de autenticación.
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

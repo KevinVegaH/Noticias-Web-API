@@ -13,7 +13,8 @@ namespace NoticiasWebAPI.Controllers
 {
     [Route("api/noticias")]
     [ApiController]
- 
+    // JwtBearerDefaults.AuthenticationScheme <-- Esquema de autenticación Json Wen Token
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] // <-- Permite el acceso solo al personal autorizado.
     public class NoticiasController : ControllerBase
     {
         private readonly NoticiasServices _NoticiasServicio;
