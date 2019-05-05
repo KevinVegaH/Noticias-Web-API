@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using NoticiasWebAPI.Controllers;
 using NoticiasWebAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NoticiasWebAPI
 {
-    public class NoticiasDBContext: DbContext
+    public class NoticiasDBContext: IdentityDbContext<ApplicationUser> // <-- Permite agregar las tablas del sistema de usuarios de ASP.NET
     {
         public NoticiasDBContext(DbContextOptions opcines) : base(opcines) {
 
